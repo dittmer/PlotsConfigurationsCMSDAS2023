@@ -141,24 +141,10 @@ aliases['bReq'] = {
     'expr': 'Sum$(CleanJet_pt > 30. && abs(CleanJet_eta) < 2.5 && Jet_btagDeepB[CleanJet_jetIdx] > 0.1241) >= 1'
 }
 
-# CR definitions
-
-aliases['topcr'] = {
-    'expr': 'mtw2>30 && mll>50 && ((zeroJet && !bVeto) || bReq)'
-}
-
-aliases['dycr'] = {
-    'expr': 'mth<60 && mll>40 && mll<80 && bVeto'
-}
-
-aliases['wwcr'] = {
-    'expr': 'mth>60 && mtw2>30 && mll>100 && bVeto'
-}
-
 # SR definition
 
 aliases['sr'] = {
-    'expr': 'mth>60 && mtw2>30 && bVeto'
+    'expr': 'bVeto'
 }
 
 # B tag scale factors
@@ -174,7 +160,7 @@ aliases['bReqSF'] = {
 }
 
 aliases['btagSF'] = {
-    'expr': '(bVeto || (topcr && zeroJet))*bVetoSF + (topcr && !zeroJet)*bReqSF',
+    'expr': '(bVeto || zeroJet)*bVetoSF + (!zeroJet)*bReqSF',
     'samples': mc
 }
 
@@ -251,7 +237,7 @@ aliases['SFweightMuDown'] = {
 
 aliases['Weight2MINLO'] = {
     'class': 'Weight2MINLO',
-    'args': '%s/src/PlotsConfigurations/patches/NNLOPS_reweight.root' % os.getenv('CMSSW_BASE'),
+    'args': '$CMSSW_BASE/src/PlotsConfigurations/patches/NNLOPS_reweight.root',
     'samples' : [skey for skey in samples if 'ggH_hww' in skey],
 }
 

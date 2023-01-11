@@ -39,28 +39,6 @@ cuts['hww2l2v_13TeV'] = {
       #'me_mp_1j_pt2lt20' : ' Lepton_pdgId[0]==-13 && Lepton_pt[1]<20 && oneJet && Alt$(CleanJet_pt[1],0)<30',
       #'me_pm_1j_pt2lt20' : ' Lepton_pdgId[0]==13 && Lepton_pt[1]<20 && oneJet && Alt$(CleanJet_pt[1],0)<30',
       #
-      '2j' : '(mjj<65 || mjj>105) && multiJet', 
-   }
-}
-
-## Top control regions
-cuts['hww2l2v_13TeV_top']  = { 
-   'expr' : 'topcr',
-    # Define the sub-categorization of topcr
-   'categories' : {
-      '0j' : 'zeroJet',
-      '1j' : 'oneJet && Alt$(CleanJet_pt[1],0)<30',
-      '2j' : '(mjj<65 || mjj>105) && multiJet',
-   }
-}
-
-## DYtt control regions
-cuts['hww2l2v_13TeV_dytt']  = { 
-   'expr' : 'dycr',
-   # Define the sub-categorization of dycr
-   'categories' : { 
-      '0j' : 'zeroJet',
-      '1j' : 'oneJet && Alt$(CleanJet_pt[1],0)<30',
-      '2j' : '(mjj<65 || mjj>105) && multiJet',
+      '2j' : 'multiJet', 
    }
 }
