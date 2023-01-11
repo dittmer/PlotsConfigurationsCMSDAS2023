@@ -48,8 +48,3 @@ variables['mjj']  = {   'name': 'mjj',
                         'fold'  : 3
                         }
 
-variables['pt2']  = {   'name': 'Lepton_pt[1]',
-                        'range' : (20,20,100),
-                        'xaxis' : 'p_{T} 2nd lep',
-                        'fold'  : 0
-			}
