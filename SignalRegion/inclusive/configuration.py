@@ -4,8 +4,12 @@ treeName = 'Events'
 
 tag = 'sr_incl'
 
-# used by mkShape to define output directory for root files
+# local output directory -- hadd output goes here
 outputDir = 'rootFile'
+
+# eos output directory -- when running in batch mode, output files will go to eosHomeArea/eosOutputDir 
+# where eosHomeArea is set in userConfig.py
+eosOutputDir = 'rootFile_'+tag
 
 # file with TTree aliases
 aliasesFile = 'aliases.py'
@@ -17,7 +21,7 @@ variablesFile = 'variables.py'
 cutsFile = 'cuts.py' 
 
 # file with list of samples
-samplesFile = 'samples_test.py' 
+samplesFile = 'samples.py' 
 
 # file with list of samples
 plotFile = 'plot.py' 
@@ -36,4 +40,4 @@ outputDirDatacard = 'datacards'
 structureFile = 'structure.py'
 
 # nuisances file for mkDatacards and for mkShape
-nuisancesFile = 'nuisances_dummy.py'
+nuisancesFile = 'nuisances.py'

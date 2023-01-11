@@ -88,54 +88,34 @@ DataTrig = {
 mcCommonWeightNoMatch = 'XSWeight*SFweight*METFilter_MC'
 mcCommonWeight = 'XSWeight*SFweight*PromptGenLepMatch2l*METFilter_MC'
 
-#########################################
-############ MC COMMON ##################
-#########################################
-
-mcCommonWeightNoMatch = 'XSWeight*SFweight*METFilter_MC'
-mcCommonWeight = 'XSWeight*SFweight*PromptGenLepMatch2l*METFilter_MC'
-
 ###########################################
 #############  BACKGROUNDS  ###############
 ###########################################
 
 ###### DY #######
 
-useEmbeddedDY = True
-useDYtt = True
+embed_tautauveto = '*embed_tautauveto'
 
-embed_tautauveto = '' #Setup
-if useEmbeddedDY:
-  embed_tautauveto = '*embed_tautauveto'
-
-if useEmbeddedDY:
-  # Actual embedded data
-  samples['Dyemb'] = {
+# Actual embedded data
+samples['Dyemb'] = {
     'name': [],
     'weight': 'METFilter_DATA*LepWPCut*Muon_ttHMVA_SF*embedtotal*genWeight',
     'weights': [],
     'isData': ['all'],
     'FilesPerJob': 20
-  }
+}
 
-  for run_, sd in DataRun:
-      files = nanoGetSampleFiles(embedDirectory, 'DYToTT_MuEle_Embedded_Run2018' + run_)
-      samples['Dyemb']['name'].extend(files)
-      samples['Dyemb']['weights'].extend(['Trigger_ElMu'] * len(files))
+for run_, sd in DataRun:
+    files = nanoGetSampleFiles(embedDirectory, 'DYToTT_MuEle_Embedded_Run2018' + run_)
+    samples['Dyemb']['name'].extend(files)
+    samples['Dyemb']['weights'].extend(['Trigger_ElMu'] * len(files))
 
 ###### DY MC ######
 ## We need to keep DY MC as well, because only embedded events passing the ElMu trigger are considered
 ## Events failing ElMu but passing one of the other triggers are included in the DY MC
 
-files=[]
-if useDYtt:
-  files = nanoGetSampleFiles(mcDirectory, 'DYJetsToTT_MuEle_M-50') + \
-          nanoGetSampleFiles(mcDirectory, 'DYJetsToLL_M-10to50-LO_ext1')
-
-else:
-  files = nanoGetSampleFiles(mcDirectory, 'DYJetsToLL_M-50_ext2') + \
-          nanoGetSampleFiles(mcDirectory, 'DYJetsToLL_M-10to50-LO_ext1')
-
+files = nanoGetSampleFiles(mcDirectory, 'DYJetsToTT_MuEle_M-50') + \
+        nanoGetSampleFiles(mcDirectory, 'DYJetsToLL_M-10to50-LO_ext1')
 
 samples['DY'] = {
     'name': files,
@@ -144,7 +124,6 @@ samples['DY'] = {
     'FilesPerJob': 6,
 }
 addSampleWeight(samples,'DY','DYJetsToTT_MuEle_M-50','DY_NLO_pTllrw')
-addSampleWeight(samples,'DY','DYJetsToLL_M-50_ext2','DY_NLO_pTllrw')
 addSampleWeight(samples,'DY','DYJetsToLL_M-10to50-LO_ext1','DY_LO_pTllrw')
 
 ###### Top #######

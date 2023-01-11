@@ -165,13 +165,12 @@ nuisances['electronpt'] = {
     'mapUp': 'ElepTup',
     'mapDown': 'ElepTdo',
     'samples': dict((skey, ['1', '1']) for skey in mc),
-    'folderUp': makeMCDirectory('trigFix__ElepTup_suffix'),
-    'folderDown': makeMCDirectory('trigFix__ElepTdo_suffix'),
+    'folderUp': makeMCDirectory('ElepTup_suffix'),
+    'folderDown': makeMCDirectory('ElepTdo_suffix'),
     'AsLnN': '1'
 }
 
-if useEmbeddedDY:
-  nuisances['electronpt_emb'] = {
+nuisances['electronpt_emb'] = {
     'name': 'CMS_scale_e',
     'kind': 'suffix',
     'type': 'shape',
@@ -181,7 +180,7 @@ if useEmbeddedDY:
     'folderUp': treeBaseDir+'/Embedding2018_102X_nAODv7_Full2018v7/DATAl1loose2018v7__l2loose__l2tightOR2018v7__Embedding__EmbElepTup_suffix/',
     'folderDown': treeBaseDir+'/Embedding2018_102X_nAODv7_Full2018v7/DATAl1loose2018v7__l2loose__l2tightOR2018v7__Embedding__EmbElepTdo_suffix/',
     'AsLnN': '1'
-  }
+}
 
 ##### Muon Efficiency and energy scale
 
@@ -208,13 +207,12 @@ nuisances['muonpt'] = {
     'mapUp': 'MupTup',
     'mapDown': 'MupTdo',
     'samples': dict((skey, ['1', '1']) for skey in mc),
-    'folderUp': makeMCDirectory('trigFix__MupTup_suffix'),
-    'folderDown': makeMCDirectory('trigFix__MupTdo_suffix'),
+    'folderUp': makeMCDirectory('MupTup_suffix'),
+    'folderDown': makeMCDirectory('MupTdo_suffix'),
     'AsLnN': '1'
 }
 
-if useEmbeddedDY:
-  nuisances['muonpt_emb'] = {
+nuisances['muonpt_emb'] = {
     'name': 'CMS_scale_m',
     'kind': 'suffix',
     'type': 'shape',
@@ -224,7 +222,7 @@ if useEmbeddedDY:
     'folderUp': treeBaseDir+'/Embedding2018_102X_nAODv7_Full2018v7/DATAl1loose2018v7__l2loose__l2tightOR2018v7__Embedding__EmbMupTup_suffix/',
     'folderDown': treeBaseDir+'/Embedding2018_102X_nAODv7_Full2018v7/DATAl1loose2018v7__l2loose__l2tightOR2018v7__Embedding__EmbMupTdo_suffix/',
     'AsLnN': '1'
-  }
+}
 
 ##### Jet energy scale
 # NOTE: this is probably the wrong treatment of the JEC uncertainties, since it uses the 2018 parts of the full Run II correlation scheme, but leaving as is for now
@@ -291,35 +289,34 @@ nuisances['met'] = {
 
 ##### Di-Tau vetoing for embedding
 
-if useEmbeddedDY: 
-    unc_dict = {}
-    #unc_dict['hww2l2v_13TeV_pm_0j_pt2lt20']  =   '1.03041'
-    #unc_dict['hww2l2v_13TeV_pm_0j_pt2ge20']  =   '1.02147'
-    #unc_dict['hww2l2v_13TeV_mp_0j_pt2ge20']  =   '1.02332'
-    #unc_dict['hww2l2v_13TeV_mp_0j_pt2lt20']  =   '1.02987'
-    #unc_dict['hww2l2v_13TeV_pm_1j_pt2lt20']  =   '1.01941'
-    #unc_dict['hww2l2v_13TeV_pm_1j_pt2ge20']  =   '1.01629'
-    #unc_dict['hww2l2v_13TeV_mp_1j_pt2ge20']  =   '1.01648'
-    #unc_dict['hww2l2v_13TeV_mp_1j_pt2lt20']  =   '1.02142'
-    unc_dict['hww2l2v_13TeV_0j']                =   '1.03'
-    unc_dict['hww2l2v_13TeV_1j']                =   '1.02'
-    unc_dict['hww2l2v_13TeV_2j']                =   '1.02008'
-    unc_dict['hww2l2v_13TeV_dytt_0j']           =   '1.00364'
-    unc_dict['hww2l2v_13TeV_dytt_1j']           =   '1.00177'
-    unc_dict['hww2l2v_13TeV_dytt_2j']           =   '1.00232'
-    unc_dict['hww2l2v_13TeV_top_0j']            =   '1.01720'
-    unc_dict['hww2l2v_13TeV_top_1j']            =   '1.02519'
-    unc_dict['hww2l2v_13TeV_top_2j']            =   '1.06480'
+unc_dict = {}
+#unc_dict['hww2l2v_13TeV_pm_0j_pt2lt20']  =   '1.03041'
+#unc_dict['hww2l2v_13TeV_pm_0j_pt2ge20']  =   '1.02147'
+#unc_dict['hww2l2v_13TeV_mp_0j_pt2ge20']  =   '1.02332'
+#unc_dict['hww2l2v_13TeV_mp_0j_pt2lt20']  =   '1.02987'
+#unc_dict['hww2l2v_13TeV_pm_1j_pt2lt20']  =   '1.01941'
+#unc_dict['hww2l2v_13TeV_pm_1j_pt2ge20']  =   '1.01629'
+#unc_dict['hww2l2v_13TeV_mp_1j_pt2ge20']  =   '1.01648'
+#unc_dict['hww2l2v_13TeV_mp_1j_pt2lt20']  =   '1.02142'
+unc_dict['hww2l2v_13TeV_0j']                =   '1.03' 
+unc_dict['hww2l2v_13TeV_1j']                =   '1.02'
+unc_dict['hww2l2v_13TeV_2j']                =   '1.02008'
+unc_dict['hww2l2v_13TeV_dytt_0j']           =   '1.00364'
+unc_dict['hww2l2v_13TeV_dytt_1j']           =   '1.00177'
+unc_dict['hww2l2v_13TeV_dytt_2j']           =   '1.00232'
+unc_dict['hww2l2v_13TeV_top_0j']            =   '1.01720'
+unc_dict['hww2l2v_13TeV_top_1j']            =   '1.02519'
+unc_dict['hww2l2v_13TeV_top_2j']            =   '1.06480'
 
-    for category,uncertainty in unc_dict.iteritems():
-        nuisances['embedveto_'+category]  = {
-            'name'  : 'CMS_embed_veto',
-            'type'  : 'lnN',
-            'samples'  : {
-                'Dyemb'    : uncertainty,
-            },
-            'cuts': [category],
-        }
+for category,uncertainty in unc_dict.iteritems():
+    nuisances['embedveto_'+category]  = {
+        'name'  : 'CMS_embed_veto',
+        'type'  : 'lnN',
+        'samples'  : {
+            'Dyemb'    : uncertainty,
+        },
+        'cuts': [category],
+    }
 
 ##### Pileup
 

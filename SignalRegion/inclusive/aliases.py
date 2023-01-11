@@ -93,13 +93,11 @@ aliases['Top_pTrw'] = {
 ##### DY Z pT reweighting
 
 aliases['nCleanGenJet'] = {
-    'linesToAdd': ['.L %s/src/PlotsConfigurations/patches/ngenjet.cc+' % os.getenv('CMSSW_BASE')],
     'class': 'CountGenJet',
     'samples': mc
 }
 
 aliases['getGenZpt_OTF'] = {
-    'linesToAdd':['.L %s/src/PlotsConfigurations/patches/getGenZpt.cc+' % os.getenv('CMSSW_BASE')],
     'class': 'getGenZpt',
     'samples': ['DY']
 }
@@ -252,7 +250,6 @@ aliases['SFweightMuDown'] = {
 }
 
 aliases['Weight2MINLO'] = {
-    'linesToAdd': ['.L %s/src/PlotsConfigurations/patches/weight2MINLO.cc+' % os.getenv('CMSSW_BASE')],
     'class': 'Weight2MINLO',
     'args': '%s/src/PlotsConfigurations/patches/NNLOPS_reweight.root' % os.getenv('CMSSW_BASE'),
     'samples' : [skey for skey in samples if 'ggH_hww' in skey],
@@ -273,7 +270,6 @@ thus = [
 
 for thu in thus:
     aliases[thu+'_2'] = {
-        'linesToAdd': ['.L %s/src/PlotsConfigurations/patches/gghuncertainty.cc+' % os.getenv('CMSSW_BASE')],
         'class': 'GGHUncertainty',
         'args': (thu,),
         'samples': ['ggH_hww']
