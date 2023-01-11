@@ -2,7 +2,7 @@
 
 treeName = 'Events'
 
-tag = 'TighterSig'
+tag = 'TighterSig_0111_1600'
 
 # local output directory -- hadd output goes here
 outputDir = 'rootFile'
