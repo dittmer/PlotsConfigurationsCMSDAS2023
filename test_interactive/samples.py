@@ -28,13 +28,9 @@ mcProduction = 'Autumn18_102X_nAODv7_Full2018v7'
 
 dataReco = 'Run2018_102X_nAODv7_Full2018v7'
 
-embedReco = 'Embedding2018_102X_nAODv7_Full2018v7'
-
 mcSteps = 'MCl1loose2018v7__MCCorr2018v7__l2loose__l2tightOR2018v7{var}'
 
 dataSteps = 'DATAl1loose2018v7__l2loose__l2tightOR2018v7'
-
-embedSteps = 'DATAl1loose2018v7__l2loose__l2tightOR2018v7__Embedding'
 
 ##############################################
 ###### Tree base directory for the site ######
@@ -50,7 +46,6 @@ def makeMCDirectory(var=''):
 
 mcDirectory = makeMCDirectory()
 dataDirectory = os.path.join(treeBaseDir, dataReco, dataSteps)
-embedDirectory = os.path.join(treeBaseDir, embedReco, embedSteps)
 
 ################################################
 ############ DATA DECLARATION ##################
@@ -63,57 +58,32 @@ DataRun = [
             ['D','Run2018D-02Apr2020-v1'] ,
           ]
 
-DataSets = ['MuonEG','DoubleMuon','SingleMuon','EGamma']
+DataSets = ['DoubleMuon']
 
-DataTrig = {
-            'MuonEG'         : 'Trigger_ElMu' ,
-            'DoubleMuon'     : '!Trigger_ElMu && Trigger_dblMu' ,
-            'SingleMuon'     : '!Trigger_ElMu && !Trigger_dblMu && Trigger_sngMu' ,
-            'EGamma'         : '!Trigger_ElMu && !Trigger_dblMu && !Trigger_sngMu && (Trigger_sngEl || Trigger_dblEl)' ,
-           }
+DataTrig = {'DoubleMuon' : 'Trigger_dblMu'}
 
 #########################################
 ############ MC COMMON ##################
 #########################################
 
-mcCommonWeightNoMatch = 'XSWeight*SFweight*METFilter_MC'
 mcCommonWeight = 'XSWeight*SFweight*PromptGenLepMatch2l*METFilter_MC'
-embed_tautauveto = '*embed_tautauveto'
 
-###########################################
-#############  BACKGROUNDS  ###############
-###########################################
-
-###### Embedded DY #######
-
-# Actual embedded data
-samples['Dyemb'] = {
-    'name': [],
-    'weight': 'METFilter_DATA*LepWPCut*Muon_ttHMVA_SF*embedtotal*genWeight',
-    'weights': [],
-    'isData': ['all'],
-    'FilesPerJob': 20
-}
-
-for run_, sd in DataRun:
-    files = nanoGetSampleFiles(embedDirectory, 'DYToTT_MuEle_Embedded_Run2018' + run_)
-    samples['Dyemb']['name'].extend(files)
-    samples['Dyemb']['weights'].extend(['Trigger_ElMu'] * len(files))
-
-###### DY MC ######
-## We need to keep DY MC as well, because only embedded events passing the ElMu trigger are considered
-## Events failing ElMu but passing one of the other triggers are included in the DY MC
+##################################
+#############  DY  ###############
+##################################
 
 files = nanoGetSampleFiles(mcDirectory, 'DYJetsToTT_MuEle_M-50') + \
+        nanoGetSampleFiles(mcDirectory, 'DYJetsToLL_M-50') + \
         nanoGetSampleFiles(mcDirectory, 'DYJetsToLL_M-10to50-LO_ext1')
 
 samples['DY'] = {
     'name': files,
-    'weight': mcCommonWeight+embed_tautauveto + '*( !(Sum$(PhotonGen_isPrompt==1 && PhotonGen_pt>15 && abs(PhotonGen_eta)<2.6) > 0 &&\
-                                     Sum$(LeptonGen_isPrompt==1 && LeptonGen_pt>15)>=2) )',
+    'weight': mcCommonWeight,
     'FilesPerJob': 6,
 }
-addSampleWeight(samples,'DY','DYJetsToTT_MuEle_M-50',      'DY_NLO_pTllrw')
+
+addSampleWeight(samples,'DY','DYJetsToTT_MuEle_M-50'      ,'DY_NLO_pTllrw')
+addSampleWeight(samples,'DY','DYJetsToLL_M-50'            ,'DY_NLO_pTllrw')
 addSampleWeight(samples,'DY','DYJetsToLL_M-10to50-LO_ext1','DY_LO_pTllrw')
 
 ###########################################
