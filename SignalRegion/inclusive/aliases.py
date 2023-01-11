@@ -148,7 +148,6 @@ aliases['sr'] = {
 }
 
 # B tag scale factors
-
 aliases['bVetoSF'] = {
     'expr': 'TMath::Exp(Sum$(TMath::Log((CleanJet_pt>20 && abs(CleanJet_eta)<2.5)*Jet_btagSF_deepcsv_shape[CleanJet_jetIdx]+1*(CleanJet_pt<20 || abs(CleanJet_eta)>2.5))))',
     'samples': mc
@@ -160,7 +159,7 @@ aliases['bReqSF'] = {
 }
 
 aliases['btagSF'] = {
-    'expr': '(bVeto || zeroJet)*bVetoSF + (!zeroJet)*bReqSF',
+    'expr': 'bVetoSF',
     'samples': mc
 }
 
