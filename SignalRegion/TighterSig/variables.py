@@ -60,25 +60,25 @@ variables['dphijj'] = { 'name': 'dphijj',
                        'fold' : 0
                         }
 
-variables['eta1'] = { 'name': 'eta1',
+variables['eta1'] = { 'name': 'Lepton_eta[0]',
                        'range': (60, -20, 20),
                        'xaxis': 'eta1',
                        'fold' : 0
                         }
 
-variables['eta2'] = { 'name': 'eta2',
+variables['eta2'] = { 'name': 'Lepton_eta[1]',
                        'range': (60, -20, 20),
                        'xaxis': 'eta2',
                        'fold' : 0
                         }
 
-variables['phi1'] = { 'name': 'phi1',
+variables['phi1'] = { 'name': 'Lepton_phi[0]',
                        'range': (40, -4, 4),
                        'xaxis': 'phi1',
                        'fold' : 0
                         }
 
-variables['phi2'] = { 'name': 'phi2',
+variables['phi2'] = { 'name': 'Lepton_phi[1]',
                        'range': (60, -4, 4),
                        'xaxis': 'phi2',
                        'fold' : 0
