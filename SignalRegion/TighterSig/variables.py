@@ -12,7 +12,13 @@ variables['mth']  = {   'name': 'mth',
                         'fold' : 0
                         }
 
-variables['mtw']  = {   'name': 'mtw',
+variables['mtw1']  = {   'name': 'mtw1',
+                        'range' : (20,0,200),
+                        'xaxis' : 'm_{T}^{W} [GeV]',
+                        'fold' : 0
+                        }
+
+variables['mtw2']  = {   'name': 'mtw2',
                         'range' : (20,0,200),
                         'xaxis' : 'm_{T}^{W} [GeV]',
                         'fold' : 0
@@ -30,6 +36,12 @@ variables['pt1']  = {   'name': 'Lepton_pt[0]',
                         'fold'  : 0
                         }
 
+variables['pt2']  = {   'name': 'Lepton_pt[1]',
+                        'range' : (20,20,100),
+                        'xaxis' : 'p_{T} 2nd lep',
+                        'fold'  : 0
+			}
+
 variables['mjj']  = {   'name': 'mjj',
                         'range' : (30,0,300),
                         'xaxis' : 'mjj',
@@ -40,3 +52,4 @@ variables['pt2']  = {   'name': 'Lepton_pt[1]',
                         'range' : (20,20,100),
                         'xaxis' : 'p_{T} 2nd lep',
                         'fold'  : 0
+			}

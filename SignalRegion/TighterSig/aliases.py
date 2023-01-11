@@ -144,7 +144,7 @@ aliases['bReq'] = {
 # SR definition
 
 aliases['sr'] = {
-    'expr': 'bVeto'
+    'expr': 'mth>60 && mtw2>30 && bVeto'
 }
 
 # B tag scale factors
