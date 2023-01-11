@@ -77,8 +77,7 @@ plot['DY']  = {
                   'scale'    : 1.0,
               }
 
-if useEmbeddedDY:
-  plot['Dyemb']  = {  
+plot['Dyemb']  = {  
                   'color': 418,    # kGreen+2
                   'isSignal' : 0,
                   'isData'   : 0, 
