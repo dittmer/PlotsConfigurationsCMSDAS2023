@@ -160,7 +160,7 @@ aliases['bReqSF'] = {
 }
 
 aliases['btagSF'] = {
-    'expr': '(bVeto || zeroJet)*bVetoSF + (!zeroJet)*bReqSF',
+    'expr': 'bVetoSF',
     'samples': mc
 }
 
