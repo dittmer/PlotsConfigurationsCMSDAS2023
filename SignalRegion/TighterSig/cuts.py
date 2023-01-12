@@ -15,9 +15,16 @@ cuts['hww2l2v_13TeV'] = {
    'expr': 'sr',
     # Define the sub-categorization of sr
    'categories' : {
-      '0j' : 'zeroJet',
+	'NonRes' : 'mtw2 > 80 && Lepton_pt[0] > 70 && Lepton_pt[1] > 45',
+	'Sig_0j' : '!(mtw2 > 80 && Lepton_pt[0] > 70 && Lepton_pt[1] > 45) && zeroJet',
+	'Sig_1j_VBF' : '!(mtw2 > 80 && Lepton_pt[0] > 70 && Lepton_pt[1] > 45) && oneJet && abs(CleanJet_eta[0]) > 2',
+	'Sig_1j_ggH' : '!(mtw2 > 80 && Lepton_pt[0] > 70 && Lepton_pt[1] > 45) && oneJet && abs(CleanJet_eta[0]) < 2',
+	'Sig_2j_VBF' : '!(mtw2 > 80 && Lepton_pt[0] > 70 && Lepton_pt[1] > 45) && twoJet && abs(CleanJet_eta[0]) > 2 && abs(CleanJet_eta[1]) > 2 && detajj > 3',
+	'Sig_2j_ggH' : '!(mtw2 > 80 && Lepton_pt[0] > 70 && Lepton_pt[1] > 45) && twoJet && !(abs(CleanJet_eta[0]) > 2 && abs(CleanJet_eta[1]) > 2 && detajj > 3)',
+
+      #'0j' : 'zeroJet',
       #
-      '1j' : 'oneJet && Alt$(CleanJet_pt[1],0)<30',
+      #'1j' : 'oneJet && Alt$(CleanJet_pt[1],0)<30',
       #
       #'em_pm_0j_pt2ge20' : ' Lepton_pdgId[0]==-11 && Lepton_pt[1]>=20 && zeroJet',
       #'em_mp_0j_pt2ge20' : ' Lepton_pdgId[0]==11 && Lepton_pt[1]>=20 && zeroJet',
@@ -39,6 +46,6 @@ cuts['hww2l2v_13TeV'] = {
       #'me_mp_1j_pt2lt20' : ' Lepton_pdgId[0]==-13 && Lepton_pt[1]<20 && oneJet && Alt$(CleanJet_pt[1],0)<30',
       #'me_pm_1j_pt2lt20' : ' Lepton_pdgId[0]==13 && Lepton_pt[1]<20 && oneJet && Alt$(CleanJet_pt[1],0)<30',
       #
-      '2j' : 'multiJet', 
+      #'2j' : 'multiJet', 
    }
 }
