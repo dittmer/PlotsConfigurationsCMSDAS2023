@@ -19,8 +19,8 @@ cuts['hww2l2v_13TeV'] = {
 	'Sig_0j' : '!(mtw2 > 80 && Lepton_pt[0] > 70 && Lepton_pt[1] > 45) && zeroJet',
 	'Sig_1j_VBF' : '!(mtw2 > 80 && Lepton_pt[0] > 70 && Lepton_pt[1] > 45) && oneJet && abs(CleanJet_eta[0]) > 2',
 	'Sig_1j_ggH' : '!(mtw2 > 80 && Lepton_pt[0] > 70 && Lepton_pt[1] > 45) && oneJet && abs(CleanJet_eta[0]) < 2',
-	'Sig_2j_VBF' : '!(mtw2 > 80 && Lepton_pt[0] > 70 && Lepton_pt[1] > 45) && twoJet && abs(CleanJet_eta[0]) > 2 && abs(CleanJet_eta[1]) > 2 && detajj > 3',
-	'Sig_2j_ggH' : '!(mtw2 > 80 && Lepton_pt[0] > 70 && Lepton_pt[1] > 45) && twoJet && !(abs(CleanJet_eta[0]) > 2 && abs(CleanJet_eta[1]) > 2 && detajj > 3)',
+	'Sig_2j_VBF' : '!(mtw2 > 80 && Lepton_pt[0] > 70 && Lepton_pt[1] > 45) && multiJet && abs(CleanJet_eta[0]) > 2 && abs(CleanJet_eta[1]) > 2 && detajj > 3',
+	'Sig_2j_ggH' : '!(mtw2 > 80 && Lepton_pt[0] > 70 && Lepton_pt[1] > 45) && multiJet && !(abs(CleanJet_eta[0]) > 2 && abs(CleanJet_eta[1]) > 2 && detajj > 3)',
 
       #'0j' : 'zeroJet',
       #

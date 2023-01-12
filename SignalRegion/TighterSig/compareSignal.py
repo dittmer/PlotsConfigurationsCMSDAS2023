@@ -28,4 +28,5 @@ for cutkey in f0.GetListOfKeys():
         leg = TLegend(0.6,0.6,0.8,0.8)
         leg.AddEntry(h_ggH,"ggH","l")
         leg.AddEntry(h_VBF,"VBF","l")
+        leg.Draw("same")
         c.SaveAs("compareSignal_"+cut+"_"+var+".pdf")
