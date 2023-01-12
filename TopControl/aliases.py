@@ -138,7 +138,7 @@ aliases['multiJet'] = {
     'expr': 'Alt$(CleanJet_pt[1], 0) > 30. && abs(CleanJet_eta[1]) < 2.5'
 }
 
-aliases['mtw1'] = {
+aliases['mtw1_cut'] = {
     'expr': 'mtw1 >= 30.'
 }
 # B tagging
