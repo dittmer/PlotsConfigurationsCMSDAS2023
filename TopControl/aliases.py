@@ -138,9 +138,11 @@ aliases['multiJet'] = {
     'expr': 'Alt$(CleanJet_pt[1], 0) > 30. && abs(CleanJet_eta[1]) < 2.5'
 }
 
-aliases['mtw1_cut'] = {
-    'expr': 'mtw1 >= 30.'
+aliases['mll_cut'] = {
+    'expr': 'mll >= 40.'
 }
+
+
 # B tagging
 
 aliases['bVeto'] = {
@@ -151,13 +153,10 @@ aliases['bReq'] = {
     'expr': 'Sum$(CleanJet_pt > 30. && abs(CleanJet_eta) < 2.5 && Jet_btagDeepB[CleanJet_jetIdx] > 0.1241) >= 1'
 }
 
-aliases['twobjets'] = {
-    'expr': 'Jet_btagDeepB[CleanJet_jetIdx[0]] > 0.1241 && Jet_btagDeepB[CleanJet_jetIdx[1]] > 0.1241'
+aliases['bjets'] = {
+    'expr': 'Sum$(CleanJet_pt > 20. && abs(CleanJet_eta) < 2.5 && Jet_btagDeepB[CleanJet_jetIdx] > 0.1241) >= 2'
 }
 
-aliases['bjets'] = {
-    'expr': 'twobjets'
-}
 
 # SR definition
 
