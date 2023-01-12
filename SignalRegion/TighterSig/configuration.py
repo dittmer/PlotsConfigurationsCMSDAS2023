@@ -2,7 +2,7 @@
 
 treeName = 'Events'
 
-tag = 'TighterSig_0111_1600'
+tag = 'TighterSig_0111_1645'
 
 # local output directory -- hadd output goes here
 outputDir = 'rootFile'
@@ -40,4 +40,4 @@ outputDirDatacard = 'datacards'
 structureFile = 'structure.py'
 
 # nuisances file for mkDatacards and for mkShape
-nuisancesFile = 'nuisances_empty.py'
+nuisancesFile = 'nuisances.py'
