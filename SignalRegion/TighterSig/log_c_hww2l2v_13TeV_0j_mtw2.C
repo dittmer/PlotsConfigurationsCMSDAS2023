@@ -6,6 +6,8 @@ void log_c_hww2l2v_13TeV_0j_mtw2()
    gStyle->SetOptFit(1);
    float YMin = 0.001; 
    float YMax = 100000000; 
+   float XMin = 30; 
+   float XMax = 200; 
    gStyle->SetOptStat(0);
    gStyle->SetOptTitle(0);
    cchww2l2v_13TeV_0j_mtw2->SetHighLightColor(2);
@@ -26,6 +28,7 @@ void log_c_hww2l2v_13TeV_0j_mtw2()
    cchww2l2v_13TeV_0j_mtw2->SetFrameBorderMode(0);
    
    TH1F *hframe__1003 = new TH1F("hframe__1003","",1000,0,200);
+   hframe__1003->GetXaxis()->SetRangeUser(XMin,XMax);
    hframe__1003->SetMinimum(YMin);
    hframe__1003->SetMaximum(YMax);
    hframe__1003->SetDirectory(0);
@@ -610,8 +613,6 @@ void log_c_hww2l2v_13TeV_0j_mtw2()
    new_histo_group_Higgs_hww2l2v_13TeV_0j_mtw2_stack_9_stack_1_stack_9->GetZaxis()->SetTitleSize(0.035);
    new_histo_group_Higgs_hww2l2v_13TeV_0j_mtw2_stack_9_stack_1_stack_9->GetZaxis()->SetTitleFont(42);
    thsBackground_grouped_hww2l2v_13TeV_0j_mtw2->Add(new_histo_group_Higgs_hww2l2v_13TeV_0j_mtw2_stack_9_stack_1_stack_9,"");
-   //thsBackground_grouped_hww2l2v_13TeV_0j_mtw2->Draw("same");
-   //thsBackground_grouped_hww2l2v_13TeV_0j_mtw2->GetYaxis()->SetRange( RatioYMin, RatioYMax);
    thsBackground_grouped_hww2l2v_13TeV_0j_mtw2->Draw("hist same");
    
    THStack *thsSignal_grouped_hww2l2v_13TeV_0j_mtw2 = new THStack();
@@ -1027,7 +1028,7 @@ void log_c_hww2l2v_13TeV_0j_mtw2()
    
    grae->Draw("p0");
    
-   TLegend *leg = new TLegend(0.2,0.65,0.8,0.88,NULL,"brNDC");
+   TLegend *leg = new TLegend(0.2,0.7,0.8,0.925,NULL,"brNDC");
    leg->SetTextSize(0.035);
    leg->SetLineColor(0);
    leg->SetLineStyle(1);
@@ -1339,6 +1340,9 @@ tex->SetNDC();
    //entry->SetMarkerStyle(20);
    //entry->SetMarkerSize(1);
    //entry->SetTextFont(42);
+   TLine *l=new TLine(80,cchww2l2v_13TeV_0j_mtw2->GetUymin(),80,0.1*YMax);
+   l->Draw();
+   l->SetLineWidth(2);
    leg->Draw();
    
    TH1F *hframe_copy__1004 = new TH1F("hframe_copy__1004","",1000,0,200);
