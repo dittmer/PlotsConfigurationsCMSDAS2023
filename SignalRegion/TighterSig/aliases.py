@@ -144,10 +144,11 @@ aliases['bReq'] = {
 # SR definition
 
 aliases['sr'] = {
-    'expr': 'bVeto'
+    'expr': 'mth>60 && mtw2>30 && bVeto'
 }
 
 # B tag scale factors
+
 aliases['bVetoSF'] = {
     'expr': 'TMath::Exp(Sum$(TMath::Log((CleanJet_pt>20 && abs(CleanJet_eta)<2.5)*Jet_btagSF_deepcsv_shape[CleanJet_jetIdx]+1*(CleanJet_pt<20 || abs(CleanJet_eta)>2.5))))',
     'samples': mc
