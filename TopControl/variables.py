@@ -54,3 +54,10 @@ variables['pTWW'] = {   'name': 'pTWW',
                         'xaxis' : 'pTWW',
                         'fold'  : 0
                         }
+
+variables['mll']  = {   'name': 'mll',
+                        'range' : (30,0,300),
+                        'xaxis' : 'mll',
+                        'fold'  : 3
+                        }
+
