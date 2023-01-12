@@ -25,14 +25,14 @@ supercut = ' mll > 12 \
 #}
 
 cuts['ww_TopCR_btag'] = {
-   'expr': 'bjets && mtw1',
+   'expr': 'bjets && mll_cut && mtw1 >= 30',
    'categories' : {
-       '1j' : 'oneJet',
+       '1j' : 'oneJet && Alt$(CleanJet_pt[1],0)<30',
        '2j' : 'multiJet'
    }
 }
 
 cuts['ww_TopCR_btag_0j'] = {
-    'expr': '!bVeto && zeroJet && mtw1',
+    'expr': '!bVeto && zeroJet && mll_cut && mtw1>= 30',
 }
 
